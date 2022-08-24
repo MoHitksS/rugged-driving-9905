@@ -1,0 +1,49 @@
+.matchDataContainer{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: smaller;
+}
+.matchData{
+    width: 25%;
+    height: 150px;
+    background-color: white;
+    border-radius: 0.75rem;
+    text-align: left;
+    padding: 10px;
+}
+
+.matchDataDay{
+    text-transform: uppercase;
+    font-weight:700;
+    line-height: 30px;
+    color: #454647;
+    font-size: 12px;
+}
+
+.flagSection{
+    display:flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.flagSection>span{
+    font-weight:700;
+    color: #454647;
+}
+
+.flagSection>img{
+    width: 20px;
+    height: 25px;
+}
+
+hr{
+    padding-bottom:8px;
+}
+
+.bottomSection{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-weight: 600;
+}

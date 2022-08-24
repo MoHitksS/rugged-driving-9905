@@ -1,8 +1,14 @@
-import React from 'react'
-import { Container, Flex, Image, Spacer } from '@chakra-ui/react'
-import styles from './Navbar.module.css'
+import React, { useRef, useState } from 'react'
+import { Container, Flex, Image, Spacer, Text } from '@chakra-ui/react'
+import { MoonIcon, BellIcon } from '@chakra-ui/icons'
+import styles from '../CSS/Navbar.module.css'
 import { Link } from 'react-router-dom'
+import GTranslateIcon from '@mui/icons-material/GTranslate';
+import AppsIcon from '@mui/icons-material/Apps';
+import SearchIcon from '@mui/icons-material/Search';
+import MatchData from './MatchData'
 const Navbar = () => {
+    const box = useRef(0)
     const matchesData = [{
         title: 'Matches',
         no: '2'
@@ -21,14 +27,10 @@ const Navbar = () => {
     },
     {
         title: "Women's Hundred",
-        no: '2'
+        no: '1'
     },
     {
         title: "Men's Hundred",
-        no: '2'
-    },
-    {
-        title: "IRE-W in NL",
         no: '1'
     }]
 
@@ -62,20 +64,25 @@ const Navbar = () => {
             path: '/stats'
         }
     ]
+    const [matchType, setMatchType] = useState("Matches");
+    
+    const handleClick = (title) =>{
+        setMatchType(title);
+    }
+
     return (
         <div className={styles.navbar}>
             <div className={styles.navbarTopSection}>
                 <div className={styles.navbarTopHeadingSection}>
-                    <Flex gap='15px' color='white'>
-                        {matchesData.map(ele => (
-                            <>
-                                <span key={Date.now() + Math.random() * 1000}>{ele.title} ({ele.no})</span>
-                            </>
+                    <Flex gap='15px' color='white' cursor={'pointer'}>
+                        {matchesData.map((ele,index) => (
+                            <span key={index} ref={box} onClick={()=>handleClick(ele.title)}>{ele.title} ({ele.no}) </span>
+                           
                         ))}
                     </Flex>
                 </div>
                 <div className={styles.navbarTopDataSection}>
-
+                    <MatchData matchType={matchType}/>
                 </div>
             </div>
             <div className={styles.navbarContainer}>
@@ -84,21 +91,36 @@ const Navbar = () => {
                         <div className={styles.navbarLeftSection}>
                             <Flex alignItems='center' gap='8' height='3rem' color={'white'}>
                                 <div className={styles.navbarLeftImageSection}>
-                                    <Image src='https://wassets.hscicdn.com/static/images/logo.png'></Image>
+                                    <Image src='https://wassets.hscicdn.com/static/images/logo.png' alt='logo.png'></Image>
                                 </div>
                                 <Spacer />
                                 <div className={styles.navbarRightDataSection}>
                                     <Flex gap='5' alignItems='center'>
-                                        {rightLink.map(link => (
-                                            <Link to={link.path}>{link.title}</Link>
+                                        {rightLink.map((link,index) => (
+                                            <Link key={index} to={link.path}>{link.title}</Link>
                                         ))}
                                     </Flex>
                                 </div>
                             </Flex>
                         </div>
-                        <Spacer/>
+                        <Spacer />
                         <div className={styles.navbarRightSection}>
-
+                            <div>
+                                <Flex alignItems='center' height={50} gap={'6'} color='white'>
+                                    <Link to='/'>
+                                        <Flex gap={'2'}>
+                                            <Image height='25px' src='https://wassets.hscicdn.com/static/images/fantasy-home.png' alt='fantasy-home.png'></Image>
+                                            <Text>Fantasy</Text>
+                                        </Flex>
+                                    </Link>
+                                    <Link to='/'>Edition IN</Link>
+                                    <MoonIcon w='5' h='5' />
+                                    <BellIcon w='6' h='6' />
+                                    <GTranslateIcon />
+                                    <AppsIcon />
+                                    <SearchIcon />
+                                </Flex>
+                            </div>
                         </div>
                     </Flex>
                 </div>
