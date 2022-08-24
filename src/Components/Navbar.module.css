@@ -1,0 +1,59 @@
+.navbar {
+    width: 100%;
+    height: 200px;
+    background-color: #0398dc;
+}
+
+.navbarTopSection {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+}
+
+.navbarTopHeadingSection {
+    height: 15%;
+}
+
+.navbarTopDataSection {
+    height: 85%;
+    border: 1px solid red;
+}
+
+.navbarContainer {
+    width: 100%;
+    height: 50px;
+    margin: auto;
+    background-color: rgb(3 169 244);
+}
+
+.navbarSection {
+    width: 80%;
+    margin: auto;
+    height: 100%;
+    border: 1px solid red;
+}
+
+.navbarLeftSection {
+    width: 55%;
+    height: 100%;
+}
+
+
+.navbarLeftImageSection {
+    width: 25%;
+}
+
+.navbarLeftImageSection>img {
+    width: 100%;
+}
+
+.navbarRightDataSection {
+    width: 70%;
+    height: 50%;
+}
+
+.navbarRightSection{
+    width: 35%;
+    border: 1px solid black;
+    height: 100%;
+}
