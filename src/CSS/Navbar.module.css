@@ -2,6 +2,7 @@
     width: 100%;
     height: 200px;
     background-color: #0398dc;
+    margin-bottom: 100px;
 }
 
 .navbarTopSection {
@@ -12,11 +13,14 @@
 
 .navbarTopHeadingSection {
     height: 15%;
+    font-size: smaller;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
 }
 
 .navbarTopDataSection {
     height: 85%;
-    border: 1px solid red;
 }
 
 .navbarContainer {
@@ -30,7 +34,6 @@
     width: 80%;
     margin: auto;
     height: 100%;
-    border: 1px solid red;
 }
 
 .navbarLeftSection {
@@ -49,11 +52,15 @@
 
 .navbarRightDataSection {
     width: 70%;
-    height: 50%;
+    height:50%;
 }
 
 .navbarRightSection{
     width: 35%;
-    border: 1px solid black;
     height: 100%;
 }
+
+.navbarHover:hover{
+    background-color: black;
+}
+

@@ -1,0 +1,6 @@
+.home{
+    width: 80%;
+    display: flex;
+    margin: auto;
+    gap: 20px;
+}

@@ -1,0 +1,29 @@
+
+.sidebarLeft{
+    width: 22%;
+}
+
+.sidebarData{
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.sidebarDataHeading{
+    text-align: left;
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.sidebarDataSection{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-left: 10px;
+    margin-bottom:10px;
+    font-size: 14px;
+}
