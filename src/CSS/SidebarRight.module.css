@@ -10,7 +10,6 @@
 }
 
 .sidebarRightData img{
-    transform-origin: 0 0;
     transition: transform .5s, filter 1.5s ease-in-out;
     
 }

@@ -10,6 +10,7 @@ const SidebarLeft = () => {
     const sites = ['The Cricket Monthly','ESPN'];
     return (
         <div className={styles.sidebarLeft}>
+            
             <SidebarLeftData data={keySeries} title="Key Series" />
             <SidebarLeftData data={quickLinks} title="Quick Links" />
             <SidebarLeftData data={ESPNcricinfo} title="ESPNcricinfo Apps" />

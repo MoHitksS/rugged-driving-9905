@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { Container, Flex, Image, Spacer, Text } from '@chakra-ui/react'
+import {  Flex, Image, Spacer, Text } from '@chakra-ui/react'
 import { MoonIcon, BellIcon } from '@chakra-ui/icons'
 import styles from '../CSS/Navbar.module.css'
 import { Link } from 'react-router-dom'
@@ -11,7 +11,7 @@ const Navbar = () => {
     const box = useRef(0)
     const matchesData = [{
         title: 'Matches',
-        no: '2'
+        no: '9'
     },
     {
         title: 'Asia Cup QLF',
@@ -38,10 +38,6 @@ const Navbar = () => {
         {
             title: 'Live Scores',
             path: '/live-score'
-        },
-        {
-            title: 'Series',
-            path: '/series'
         },
         {
             title: 'Teams',
@@ -91,7 +87,7 @@ const Navbar = () => {
                         <div className={styles.navbarLeftSection}>
                             <Flex alignItems='center' gap='8' height='3rem' color={'white'}>
                                 <div className={styles.navbarLeftImageSection}>
-                                    <Image src='https://wassets.hscicdn.com/static/images/logo.png' alt='logo.png'></Image>
+                                    <Link to='/'><Image src='https://wassets.hscicdn.com/static/images/logo.png' alt='logo.png'></Image></Link>
                                 </div>
                                 <Spacer />
                                 <div className={styles.navbarRightDataSection}>

@@ -31,19 +31,21 @@
 }
 
 .navbarSection {
+    position: sticky;
+    top: 0%;
     width: 80%;
     margin: auto;
     height: 100%;
 }
 
 .navbarLeftSection {
-    width: 55%;
+    width: 60%;
     height: 100%;
 }
 
 
 .navbarLeftImageSection {
-    width: 25%;
+    width: 20%;
 }
 
 .navbarLeftImageSection>img {
