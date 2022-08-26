@@ -1,16 +1,12 @@
-.matchDataContainer{
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    font-size: smaller;
-}
+
 .matchData{
-    width: 28%;
+    width: 100%;
     height: 150px;
     background-color: white;
     border-radius: 0.75rem;
     text-align: left;
     padding: 10px;
+    font-size: smaller;
 }
 
 .matchDataDay{

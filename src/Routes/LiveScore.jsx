@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Box, Flex, Text } from '@chakra-ui/react'
-import SidebarRightData from './SidebarRightData'
-import LiveScoreData from './LiveScoreData'
+import SidebarRightData from '../Components/SidebarRightData'
+import LiveScoreData from '../Components/LiveScoreData'
 const LiveScore = () => {
   const dataHead = ['Live', 'Upcoming', "Result"]
   const [headData, setHeadData] = useState("Live")

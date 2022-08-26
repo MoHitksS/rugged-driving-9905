@@ -1,6 +1,6 @@
 import { Box, Flex, Skeleton, Spacer, Text } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
-import FooterData from './FooterData';
+import FooterData from '../Components/FooterData';
 
 const Footer = () => {
     const keySeries = ['Zimbabwe vs India', 'Asia Cup QLF', 'Asia Cup', 'England vs South Africa', 'West Indies v New Zealand', 'Australia vs Zimbabwe', 'The Hundred (M)', 'The Hundred (M)', 'County Div1', 'County Div2', '6IXTY (M)', '6IXTY (W)', "Women's Championship", "World Test Championship", "World Cup Super League"]
@@ -12,7 +12,7 @@ const Footer = () => {
     useEffect(() => {
         let id = setInterval(() => {
             setLoading(true)
-        }, 2000)
+        }, 1000)
 
         return () => clearInterval(id)
     }, [])

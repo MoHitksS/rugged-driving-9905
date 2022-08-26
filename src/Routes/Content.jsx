@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from '../CSS/Content.module.css'
-import ContentData from './ContentData'
+import ContentData from '../Components/ContentData'
 
 const Content = () => {
   return (
