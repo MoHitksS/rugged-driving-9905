@@ -1,24 +1,29 @@
 import React from 'react'
 import {Routes,Route} from 'react-router-dom'
-import Features from '../Components/Features'
-import Home from '../Components/Home'
-import LiveScore from '../Components/LiveScore'
-import News from '../Components/News'
-import Stats from '../Components/Stats'
-import Teams from '../Components/Teams'
-import Videos from '../Components/Videos'
+import Features from './Features'
+import Home from './Home'
+import LiveScore from './LiveScore'
+import News from './News'
+import SingleContent from './SingleContent'
+import Stats from './Stats'
+import Teams from './Teams'
+import Videos from './Videos'
 
 const AllRoutes = () => {
   return (
     <div>
         <Routes>
             <Route path='/' element={<Home/>}></Route>
-            <Route path='/live-score' element={<LiveScore/>}></Route>
-            <Route path='/teams' element={<Teams/>}></Route>
-            <Route path='/news' element={<News/>}></Route>
-            <Route path='/features' element={<Features/>}></Route>
-            <Route path='/videos' element={<Videos/>}></Route>
-            <Route path='/stats' element={<Stats/>}></Route>
+            <Route path='/Live-score' element={<LiveScore/>}></Route>
+            <Route path='/Teams' element={<Teams/>}></Route>
+            <Route path='/News' element={<News/>}></Route>
+            <Route path='/Features' element={<Features/>}></Route>
+            <Route path='/Videos' element={<Videos/>}></Route>
+            <Route path='/Stats' element={<Stats/>}></Route>
+            <Route path='/:title' element={<SingleContent/>}></Route>
+            <Route path='/News/:title' element={<SingleContent/>}></Route>
+            <Route path='/Features/:title' element={<SingleContent/>}></Route>
+            <Route path='/Article/:title' element={<SingleContent/>}></Route>
         </Routes>
     </div>
   )

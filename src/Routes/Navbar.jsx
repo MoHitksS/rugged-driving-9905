@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom'
 import GTranslateIcon from '@mui/icons-material/GTranslate';
 import AppsIcon from '@mui/icons-material/Apps';
 import SearchIcon from '@mui/icons-material/Search';
-import MatchData from './MatchData'
+import MatchData from '../Components/MatchData'
 const Navbar = () => {
     const box = useRef(0)
     const matchesData = [{
@@ -37,27 +37,27 @@ const Navbar = () => {
     const rightLink = [
         {
             title: 'Live Scores',
-            path: '/live-score'
+            path: '/Live-score'
         },
         {
             title: 'Teams',
-            path: '/teams'
+            path: '/Teams'
         },
         {
             title: 'News',
-            path: '/news'
+            path: '/News'
         },
         {
             title: 'Features',
-            path: '/features'
+            path: '/Features'
         },
         {
             title: 'Videos',
-            path: '/videos'
+            path: '/Videos'
         },
         {
             title: 'Stats',
-            path: '/stats'
+            path: '/Stats'
         }
     ]
     const [matchType, setMatchType] = useState("Matches");

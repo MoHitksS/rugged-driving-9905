@@ -16,32 +16,33 @@ const MatchData = ({ matchType }) => {
     }, [api]);
 
     return (
-            <div className={styles.matchDataContainer}>
-                {data?.map((ele, index) => (
-                    <div className={styles.matchData} key={index}>
-                        <span><span className={styles.matchDataDay}>{ele.day},{ele.time}</span> • {ele.tournamnetType} • {ele.city}</span>
-                        <div className={styles.flagSection}>
-                            <img src={ele.flag1} alt={ele.team1} />
-                            <span>{ele.team1}</span>
-                        </div>
-                        <div className={styles.flagSection}>
-                            <img src={ele.flag2} alt={ele.team2} />
-                            <span>{ele.team2}</span>
-                        </div>
-                        <Stack>
-                            {ele.matchTime !== "" ? <span className={styles.matchStart}>Match Starts in {ele.matchTime}</span> : <span className={styles.matchStart}>Match yet to begin</span>}
-                        </Stack>
-                        <Stack>
-                            <hr />
-                        </Stack>
-                        <div className={styles.bottomSection}>
-                            <span>Schedule</span>
-                            <span>Table</span>
-                            <span>Fantasy</span>
-                        </div>
+        <div className={styles.matchDataContainer}>
+            {data?.map((ele, index) => (
+
+                <div className={styles.matchData} key={index}>
+                    <span><span className={styles.matchDataDay}>{ele.day},{ele.time}</span> • {ele.tournamnetType} • {ele.city}</span>
+                    <div className={styles.flagSection}>
+                        <img src={ele.flag1} alt={ele.team1} />
+                        <span>{ele.team1}</span>
                     </div>
-                ))}
-            </div>
+                    <div className={styles.flagSection}>
+                        <img src={ele.flag2} alt={ele.team2} />
+                        <span>{ele.team2}</span>
+                    </div>
+                    <Stack>
+                        {ele.matchTime !== "" ? <span className={styles.matchStart}>Match Starts in {ele.matchTime}</span> : <span className={styles.matchStart}>Match yet to begin</span>}
+                    </Stack>
+                    <Stack>
+                        <hr />
+                    </Stack>
+                    <div className={styles.bottomSection}>
+                        <span>Schedule</span>
+                        <span>Table</span>
+                        <span>Fantasy</span>
+                    </div>
+                </div>
+            ))}
+        </div>
     )
 }
 

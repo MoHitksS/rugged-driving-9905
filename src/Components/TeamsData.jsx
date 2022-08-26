@@ -14,7 +14,7 @@ const TeamsData = ({query,title}) => {
 
        let id =  setInterval(()=>{
             setLoading(true)
-        },2000)
+        },1000)
 
         return () => clearInterval(id)
     }, [query]);

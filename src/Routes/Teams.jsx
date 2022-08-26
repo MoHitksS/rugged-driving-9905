@@ -1,6 +1,6 @@
 import { Box } from '@chakra-ui/react'
 import React from 'react'
-import TeamsData from './TeamsData'
+import TeamsData from '../Components/TeamsData'
 
 const Teams = () => {
   return (
