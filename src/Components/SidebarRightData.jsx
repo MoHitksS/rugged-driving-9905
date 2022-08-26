@@ -23,8 +23,8 @@ const SidebarRightData = () => {
         <Skeleton isLoaded={loading}>
             <div className={styles.sidebarRightData}>
                 {data?.map((ele, index) => (
-                    <Link to={`/Article/${ele.title.replace(/\s+/g, '-')}`} state={{query: `Article`,title: `${ele.title}`}}>
-                        <Container key={index} pt={3}>
+                    <Link key={index} to={`/Article/${ele.title.replace(/\s+/g, '-')}`} state={{query: `Article`,title: `${ele.title}`}}>
+                        <Container pt={3}>
                             <Box w={"100%"} overflow="hidden">
                                 <Image src={ele.img} borderRadius={10} w={"100%"} />
                             </Box>

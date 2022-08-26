@@ -18,7 +18,6 @@ const MatchData = ({ matchType }) => {
     return (
         <div className={styles.matchDataContainer}>
             {data?.map((ele, index) => (
-
                 <div className={styles.matchData} key={index}>
                     <span><span className={styles.matchDataDay}>{ele.day},{ele.time}</span> • {ele.tournamnetType} • {ele.city}</span>
                     <div className={styles.flagSection}>

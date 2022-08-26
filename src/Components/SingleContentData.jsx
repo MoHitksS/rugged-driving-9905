@@ -32,7 +32,7 @@ const SingleContentData = () => {
         </Link>
         <hr />
         {data?.map((ele, index) => (
-          <Flex alignItems={'flex-start'} pl={8} pr={4} pt={3} pb={135} direction={'column'} gap={3}>
+          <Flex alignItems={'flex-start'} pl={8} pr={4} pt={3} pb={135} direction={'column'} gap={3} key={index}>
             <Heading as={'h1'} align={'left'} size={'lg'}>{title}</Heading>
             <Text align={'left'} fontSize={20}>{ele.description}</Text>
             <Box w={'100%'}
