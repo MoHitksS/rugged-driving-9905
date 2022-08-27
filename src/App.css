@@ -45,3 +45,71 @@ body{
     transform: rotate(360deg);
   }
 }
+.search-box {
+  position: absolute;
+  top: 50%;
+  left: 97%;
+  transform: translate(-50%, -50%);
+  background: #03A9F4;
+  height: 50px;
+  border-radius: 15px;
+  padding: 5px;
+}
+/* input */
+.search-input {
+  outline: none;
+  border: none;
+  background: white;
+  width: 0;
+  padding: 0;
+  color: black;
+  float: left;
+  font-size: 16px;
+  transition: .3s;
+  line-height: 40px;
+  border-radius: 10px;
+}
+.search-input::placeholder {
+  color: #03A9F4;
+}
+/* icon */
+.search-btn {
+  color: #fff;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+  background: #03A9F4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  transition: .3s;
+}
+.search-input:focus,
+.search-input:not(:placeholder-shown) {
+  width: 240px;
+  padding: 0 6px;
+}
+.search-box:hover > .search-input {
+  width: 240px;
+  padding: 0 6px;
+  
+}
+.search-box:hover > .search-btn,
+.search-input:focus + .search-btn,
+.search-input:not(:placeholder-shown) + .search-btn {
+  background: #03A9F4;
+  color: #fff;
+  position: absolute;
+  left: 90%;
+}
+
+.search-box:hover > .search-btn{
+  position: absolute;
+  left: 90%;
+}
+
+.search-box:hover{
+ background: white;
+}

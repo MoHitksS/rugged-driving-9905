@@ -11,7 +11,7 @@ const LiveScore = () => {
           <Box w={"75%"}>
             <Flex alignItems={'center'} justifyContent={'space-around'} p={2} borderRadius='10px' boxShadow={'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px'}>
               {dataHead.map((ele, index) => (
-                <Text key={index} cursor={'pointer'} onClick={() => setHeadData(ele)}>{ele}</Text>
+                <Text key={index} cursor={'pointer'} onClick={() => setHeadData(ele)} _hover={{color:"#03A9F4"}}>{ele}</Text>
               ))}
             </Flex>
 

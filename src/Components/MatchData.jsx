@@ -16,7 +16,6 @@ const MatchData = ({ matchType }) => {
     }, [api]);
 
     return (
-        // <div className={styles.matchDataContainer}>
         <SimpleGrid columns={[1,1,4]} w={"100%"} gap={5}>
             {data?.map((ele, index) => (
                     <div className={styles.matchData} key={index}>
@@ -43,7 +42,6 @@ const MatchData = ({ matchType }) => {
                     </div>
             ))}
         </SimpleGrid >
-        // </div>
     )
 }
 

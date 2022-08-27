@@ -5,15 +5,21 @@ import VideosData from '../Components/VideosData'
 
 const Videos = () => {
   return (
-    <Box w={'100%'}>
-        <Flex w={'80%'} m={'auto'} gap={8}>
-          <Box w={"75%"}>
-            <VideosData query={"Features"} title={"Videos"}/>
-          </Box>
-          <Box w={"22%"}>
-            <SidebarRightData/>
-          </Box>
+    <Box w={'100%'} >
+      <Box w={"80%"} m={'auto'}>
+        <Flex direction={'column'} gap={2}>
+          <VideosData query={"FeaturedVideos"} title={"Videos"} headTitle={"Featured Videos"} />
+          <VideosData query={"ESPNcricinfoShows"} title={"Videos"} headTitle={"ESPNcricinfo shows"} dataShowLimit={[2,3,8]}/>
+          <Flex>
+            <Box w={"75%"}>
+              <VideosData query={"Videos"} title={"Videos"} headTitle={"Videos"} dataShowLimit={[1,1,3]}/>
+            </Box>
+            <Box w={"24%"} mt={3}>
+              <SidebarRightData />
+            </Box>
+          </Flex>
         </Flex>
+      </Box>
     </Box>
   )
 }
