@@ -20,7 +20,6 @@ const Videos = () => {
           </Flex>
         </Flex>
       </Box>
-
     </Box>
   )
 }

@@ -29,7 +29,7 @@ const VideosData = ({ query, title, headTitle, dataShowLimit = [1,2,4], limit = 
         <Skeleton isLoaded={loading}>
             <Box>
                 <Flex alignItems={'center'}>
-                    <Text align={'left'} p={3} fontWeight={'bold'} fontSize={'x-large'} >{headTitle}</Text>
+                    <Text align={'left'} p={3} fontWeight={'bold'} fontSize={'x-large'} color={'#454647'}>{headTitle}</Text>
                     <Spacer />
                     <Link to={`/${title}`}>
                         <Text p={3} color={"#03A9F4"}>view all videos</Text>
@@ -66,7 +66,7 @@ const VideosData = ({ query, title, headTitle, dataShowLimit = [1,2,4], limit = 
         <Skeleton isLoaded={loading}>
             <Box >
                 <Flex alignItems={'center'}>
-                    <Text align={'left'} p={3} fontWeight={'bold'} fontSize={'x-large'} >{headTitle}</Text>
+                    <Text align={'left'} p={3} fontWeight={'bold'} fontSize={'x-large'} color={'#454647'} >{headTitle}</Text>
                 </Flex>
                 <SimpleGrid columns={dataShowLimit} gap={2} p={3}>
                     {data?.map((ele, index) => (

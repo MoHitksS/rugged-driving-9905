@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import {  Flex, Image, Spacer, Text } from '@chakra-ui/react'
+import { Flex, Image, Spacer, Text } from '@chakra-ui/react'
 import { MoonIcon, BellIcon } from '@chakra-ui/icons'
 import styles from '../CSS/Navbar.module.css'
 import { Link } from 'react-router-dom'
@@ -7,7 +7,7 @@ import GTranslateIcon from '@mui/icons-material/GTranslate';
 import AppsIcon from '@mui/icons-material/Apps';
 import SearchIcon from '@mui/icons-material/Search';
 import MatchData from '../Components/MatchData'
-const Navbar = () => {
+const Navbar = (handleData) => {
     const box = useRef(0)
     const matchesData = [{
         title: 'Matches',
@@ -61,9 +61,15 @@ const Navbar = () => {
         }
     ]
     const [matchType, setMatchType] = useState("Matches");
-    
-    const handleClick = (title) =>{
+    const [text, setText] = useState("")
+
+    const handleClick = (title) => {
         setMatchType(title);
+    }
+
+    const handleClicked = () => {
+        handleData(text)
+        setText("")
     }
 
     return (
@@ -71,14 +77,14 @@ const Navbar = () => {
             <div className={styles.navbarTopSection}>
                 <div className={styles.navbarTopHeadingSection}>
                     <Flex gap='15px' color='white' cursor={'pointer'}>
-                        {matchesData.map((ele,index) => (
-                            <span key={index} ref={box} onClick={()=>handleClick(ele.title)}>{ele.title} ({ele.no}) </span>
-                           
+                        {matchesData.map((ele, index) => (
+                            <span key={index} ref={box} onClick={() => handleClick(ele.title)}>{ele.title} ({ele.no}) </span>
+
                         ))}
                     </Flex>
                 </div>
                 <div className={styles.navbarTopDataSection}>
-                    <MatchData matchType={matchType}/>
+                    <MatchData matchType={matchType} />
                 </div>
             </div>
             <div className={styles.navbarContainer}>
@@ -92,7 +98,7 @@ const Navbar = () => {
                                 <Spacer />
                                 <div className={styles.navbarRightDataSection}>
                                     <Flex gap='5' alignItems='center'>
-                                        {rightLink.map((link,index) => (
+                                        {rightLink.map((link, index) => (
                                             <Link key={index} to={link.path}>{link.title}</Link>
                                         ))}
                                     </Flex>
@@ -114,14 +120,19 @@ const Navbar = () => {
                                     <BellIcon w='6' h='6' />
                                     <GTranslateIcon />
                                     <AppsIcon />
-                                    <SearchIcon />
+                                    <div className="search-box">
+                                        <input type="text" className="search-input" onChange={(e) => setText(e.target.value)} placeholder="Start Looking For Something!" />
+                                        <Link to={`/Search`} className="search-btn" href="#">
+                                            <SearchIcon onClick={handleClicked} />
+                                        </Link>
+                                    </div>
                                 </Flex>
                             </div>
                         </div>
                     </Flex>
-                </div>
-            </div>
-        </div>
+                </div >
+            </div >
+        </div >
     )
 }
 
