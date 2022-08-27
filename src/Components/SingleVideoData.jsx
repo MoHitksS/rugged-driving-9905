@@ -14,7 +14,7 @@ const SingleVideoData = () => {
     )).catch(error => (
       console.log(error)
     ))
-  }, []);
+  }, [data]);
   const [loading, setLoading] = useState(false)
   useEffect(() => {
     let id = setInterval(() => {
@@ -22,20 +22,20 @@ const SingleVideoData = () => {
     }, 1000)
 
     return () => clearInterval(id)
-  }, [query])
+  }, [])
   return (
-    // <Skeleton isLoaded={loading}>
+    <Skeleton isLoaded={loading}>
     <Box>
       {data?.map((ele, index) => (
-        <Flex alignItems={'flex-start'} pl={8} pr={4} direction={'column'} gap={3} key={index}>
-          <iframe width="100%" height="500px" src="https://www.youtube.com/embed/C9Ipk21VeOU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <Flex alignItems={'flex-start'} pl={2} pr={4} direction={'column'} gap={3} key={index}>
+          <iframe width="100%" height="500px" src={ele.videoUrl} title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ></iframe>
           <Heading as={'h1'} align={'left'} size={'lg'}>{title}</Heading>
           <Text align={'left'} fontSize={20}>{ele.description}</Text>
         </Flex>
       ))}
 
     </Box>
-    // </Skeleton>
+  </Skeleton>
   )
 }
 
