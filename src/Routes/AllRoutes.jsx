@@ -5,6 +5,7 @@ import Home from './Home'
 import LiveScore from './LiveScore'
 import News from './News'
 import SingleContent from './SingleContent'
+import SingleVideo from './SingleVideo'
 import Stats from './Stats'
 import Teams from './Teams'
 import Videos from './Videos'
@@ -24,6 +25,7 @@ const AllRoutes = () => {
             <Route path='/News/:title' element={<SingleContent/>}></Route>
             <Route path='/Features/:title' element={<SingleContent/>}></Route>
             <Route path='/Article/:title' element={<SingleContent/>}></Route>
+            <Route path='/Videos/:title' element={<SingleVideo/>}></Route>
         </Routes>
     </div>
   )
