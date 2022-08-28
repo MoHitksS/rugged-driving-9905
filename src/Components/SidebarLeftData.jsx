@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { ChevronRightIcon } from '@chakra-ui/icons'
 import styles from '../CSS/SidebarLeft.module.css'
-import { Skeleton } from '@chakra-ui/react'
+import { Skeleton, Text } from '@chakra-ui/react'
+import { DarkModeContext } from '../ContextApi/DarkModeContext'
 const SidebarLeftData = ({ data, title }) => {
 
   const [loading, setLoading] = useState(false)
+  const {style, hrStyle} = useContext(DarkModeContext)
   useEffect(() => {
     let id = setInterval(() => {
       setLoading(true)
@@ -14,9 +16,9 @@ const SidebarLeftData = ({ data, title }) => {
   }, [])
   return (
     <Skeleton isLoaded={loading}>
-      <div className={styles.sidebarData}>
+      <div className={styles.sidebarData} style={style}>
         <p className={styles.sidebarDataHeading}>{title}</p>
-        <hr />
+        <Text mb={2} style={hrStyle} />
         {data.map((ele, index) => (
           <div key={index} className={styles.sidebarDataSection}>
             <ChevronRightIcon color={'#11aef5'} />

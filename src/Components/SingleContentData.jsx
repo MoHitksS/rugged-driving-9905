@@ -2,12 +2,15 @@ import { Box, Flex, Heading, Image, Skeleton, Text } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { DarkModeContext } from '../ContextApi/DarkModeContext'
+import { useContext } from 'react';
 
 const SingleContentData = () => {
   const [data, setData] = useState([]);
   const location = useLocation();
   const query = location.state?.query;
   const title = location.state?.title;
+  const { style,hrStyle } = useContext(DarkModeContext)
   const api = query === `Article` ? `https://apna-mock-server.herokuapp.com/epsnCrickinfoSidebars?q=${title}` : query === 'Home' ? `https://apna-mock-server.herokuapp.com/espncricinfoHomeData?q=${title}` : `https://apna-mock-server.herokuapp.com/espncricinfoData${query}?q=${title}`
   useEffect(() => {
     axios.get(api).then(res => (
@@ -26,11 +29,11 @@ const SingleContentData = () => {
   }, [])
   return (
     <Skeleton isLoaded={loading}>
-      <Box borderRadius='8px' boxShadow={'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px'}>
+      <Box borderRadius='8px' style={style} boxShadow={'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px'}>
         <Link to={query === "Home" ? `/` : `/${query}`}>
           <Text align={'left'} p={3} pl={8} fontWeight={500} fontSize={'large'} color={"#03A9F4"}>{query}</Text>
         </Link>
-        <hr />
+        <Text style={hrStyle} />
         {data?.map((ele, index) => (
           <Flex alignItems={'flex-start'} pl={8} pr={4} pt={3} pb={135} direction={'column'} gap={3} key={index}>
             <Heading as={'h1'} align={'left'} size={'lg'}>{title}</Heading>

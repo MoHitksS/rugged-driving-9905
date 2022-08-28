@@ -2,6 +2,8 @@ import { Box, Flex, Heading, Image, Skeleton, Text } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
+import { DarkModeContext } from '../ContextApi/DarkModeContext'
+import { useContext } from 'react';
 
 const SingleSearchData = () => {
     const [data, setData] = useState([]);
@@ -14,7 +16,7 @@ const SingleSearchData = () => {
             console.log(error)
         ))
     }, []);
-    console.log(data)
+    
     const [loading, setLoading] = useState(false)
     useEffect(() => {
         let id = setInterval(() => {
@@ -23,9 +25,11 @@ const SingleSearchData = () => {
 
         return () => clearInterval(id)
     }, [])
+
+    const { style } = useContext(DarkModeContext)
     return (
         <Skeleton isLoaded={loading}>
-            <Box borderRadius='8px' boxShadow={'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px'}>
+            <Box borderRadius='8px' style={style} boxShadow={'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px'}>
                 <Link to={`/`}>
                     <Text align={'left'} p={3} pl={8} fontWeight={500} fontSize={'large'} color={"#03A9F4"}>Home</Text>
                 </Link>
