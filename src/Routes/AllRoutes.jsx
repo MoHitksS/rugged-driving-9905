@@ -1,11 +1,13 @@
 import React from 'react'
 import {Routes,Route} from 'react-router-dom'
+import SingleSearchData from '../Components/SingleSearchData'
 import Features from './Features'
 import Home from './Home'
 import LiveScore from './LiveScore'
 import News from './News'
 import Search from './Search'
 import SingleContent from './SingleContent'
+import SingleSearch from './SingleSearch'
 import SingleVideo from './SingleVideo'
 import Stats from './Stats'
 import Teams from './Teams'
@@ -23,6 +25,7 @@ const AllRoutes = () => {
             <Route path='/Videos' element={<Videos/>}></Route>
             <Route path='/Stats' element={<Stats/>}></Route>
             <Route path='/Search' element={<Search/>}></Route>
+            <Route path='/Search/:title' element={<SingleSearch/>}></Route>
             <Route path='/:title' element={<SingleContent/>}></Route>
             <Route path='/News/:title' element={<SingleContent/>}></Route>
             <Route path='/Features/:title' element={<SingleContent/>}></Route>

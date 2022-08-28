@@ -7,7 +7,7 @@ import GTranslateIcon from '@mui/icons-material/GTranslate';
 import AppsIcon from '@mui/icons-material/Apps';
 import SearchIcon from '@mui/icons-material/Search';
 import MatchData from '../Components/MatchData'
-const Navbar = (handleData) => {
+const Navbar = () => {
     const box = useRef(0)
     const matchesData = [{
         title: 'Matches',
@@ -67,10 +67,7 @@ const Navbar = (handleData) => {
         setMatchType(title);
     }
 
-    const handleClicked = () => {
-        handleData(text)
-        setText("")
-    }
+    
 
     return (
         <div className={styles.navbar}>
@@ -122,8 +119,8 @@ const Navbar = (handleData) => {
                                     <AppsIcon />
                                     <div className="search-box">
                                         <input type="text" className="search-input" onChange={(e) => setText(e.target.value)} placeholder="Start Looking For Something!" />
-                                        <Link to={`/Search`} className="search-btn" href="#">
-                                            <SearchIcon onClick={handleClicked} />
+                                        <Link to={`/Search`} state={{query: text}} className="search-btn" href="#">
+                                            <SearchIcon/>
                                         </Link>
                                     </div>
                                 </Flex>
