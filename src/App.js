@@ -5,12 +5,6 @@ import AllRoutes from './Routes/AllRoutes';
 import Footer from './Routes/Footer';
 import Navbar from './Routes/Navbar';
 
-
-const getStyle = (mode) => {
-  
-  
-}
-
 function App() {
   const { mode } = useContext(DarkModeContext)
   const getStyle = (mode) => {
