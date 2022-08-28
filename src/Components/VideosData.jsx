@@ -2,6 +2,8 @@ import { Box, Flex, Image, SimpleGrid, Skeleton, Spacer, Text } from '@chakra-ui
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
+import { DarkModeContext } from '../ContextApi/DarkModeContext'
+import { useContext } from 'react';
 
 const VideosData = ({ query, title, headTitle, dataShowLimit = [1,2,4], limit = '' }) => {
     const [data, setData] = useState([]);
@@ -22,14 +24,23 @@ const VideosData = ({ query, title, headTitle, dataShowLimit = [1,2,4], limit = 
         ))
     }, [query]);
 
+    const { style, mode } = useContext(DarkModeContext)
+    const getStyle = (mode) => {
+        return mode ? {
+            color: "white"
+        } : null
+    }
+
+    const newStyle = getStyle(mode)
+
     let date = new Date().toLocaleString("en-US", { day: '2-digit' });
     let month = new Date().toLocaleString("en-US", { month: "long" });
     let year = new Date().getFullYear();
     const featuredVideos = (
         <Skeleton isLoaded={loading}>
-            <Box>
+            <Box >
                 <Flex alignItems={'center'}>
-                    <Text align={'left'} p={3} fontWeight={'bold'} fontSize={'x-large'} color={'#454647'}>{headTitle}</Text>
+                    <Text style={newStyle} align={'left'} p={3} fontWeight={'bold'} fontSize={'x-large'} color={'#454647'}>{headTitle}</Text>
                     <Spacer />
                     <Link to={`/${title}`}>
                         <Text p={3} color={"#03A9F4"}>view all videos</Text>
@@ -66,7 +77,7 @@ const VideosData = ({ query, title, headTitle, dataShowLimit = [1,2,4], limit = 
         <Skeleton isLoaded={loading}>
             <Box >
                 <Flex alignItems={'center'}>
-                    <Text align={'left'} p={3} fontWeight={'bold'} fontSize={'x-large'} color={'#454647'} >{headTitle}</Text>
+                    <Text style={newStyle} align={'left'} p={3} fontWeight={'bold'} fontSize={'x-large'} color={'#454647'} >{headTitle}</Text>
                 </Flex>
                 <SimpleGrid columns={dataShowLimit} gap={2} p={3}>
                     {data?.map((ele, index) => (
@@ -83,11 +94,11 @@ const VideosData = ({ query, title, headTitle, dataShowLimit = [1,2,4], limit = 
 
     const videos = (
         <Skeleton isLoaded={loading}>
-            <Box>
+            <Box style={newStyle}>
                 <SimpleGrid columns={dataShowLimit} gap={4} p={3}>
                     {data?.map((ele, index) => (
                         <Link key={index} to={`/${title}/${ele.heading}`} state={{ query: `${query}`, title: `${ele.heading}` }}>
-                            <Box h={"320px"} p={3} background={'white'} borderRadius={8} boxShadow={'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px'}>
+                            <Box h={"320px"} p={3} background={'white'}style={style} borderRadius={8} boxShadow={'rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px'}>
                                 <Flex direction={'column'} gap={1}>
                                     <Box w={'100%'}
                                         h={180}

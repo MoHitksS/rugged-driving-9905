@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useContext, useRef, useState } from 'react'
 import { Flex, Image, Spacer, Text } from '@chakra-ui/react'
 import { MoonIcon, BellIcon } from '@chakra-ui/icons'
 import styles from '../CSS/Navbar.module.css'
@@ -7,7 +7,8 @@ import GTranslateIcon from '@mui/icons-material/GTranslate';
 import AppsIcon from '@mui/icons-material/Apps';
 import SearchIcon from '@mui/icons-material/Search';
 import MatchData from '../Components/MatchData'
-const Navbar = (handleData) => {
+import { DarkModeContext } from '../ContextApi/DarkModeContext'
+const Navbar = () => {
     const box = useRef(0)
     const matchesData = [{
         title: 'Matches',
@@ -62,18 +63,13 @@ const Navbar = (handleData) => {
     ]
     const [matchType, setMatchType] = useState("Matches");
     const [text, setText] = useState("")
-
+    const {handleMode,style} = useContext(DarkModeContext)
     const handleClick = (title) => {
         setMatchType(title);
     }
 
-    const handleClicked = () => {
-        handleData(text)
-        setText("")
-    }
-
     return (
-        <div className={styles.navbar}>
+        <div className={styles.navbar} style={style}>
             <div className={styles.navbarTopSection}>
                 <div className={styles.navbarTopHeadingSection}>
                     <Flex gap='15px' color='white' cursor={'pointer'}>
@@ -87,7 +83,7 @@ const Navbar = (handleData) => {
                     <MatchData matchType={matchType} />
                 </div>
             </div>
-            <div className={styles.navbarContainer}>
+            <div className={styles.navbarContainer} style={style}>
                 <div className={styles.navbarSection}>
                     <Flex>
                         <div className={styles.navbarLeftSection}>
@@ -116,14 +112,14 @@ const Navbar = (handleData) => {
                                         </Flex>
                                     </Link>
                                     <Link to='/'>Edition IN</Link>
-                                    <MoonIcon w='5' h='5' />
+                                    <MoonIcon w='5' h='5' onClick={handleMode}/>
                                     <BellIcon w='6' h='6' />
                                     <GTranslateIcon />
                                     <AppsIcon />
-                                    <div className="search-box">
-                                        <input type="text" className="search-input" onChange={(e) => setText(e.target.value)} placeholder="Start Looking For Something!" />
-                                        <Link to={`/Search`} className="search-btn" href="#">
-                                            <SearchIcon onClick={handleClicked} />
+                                    <div className="search-box" style={style}>
+                                        <input type="text" className="search-input" onChange={(e) => setText(e.target.value)} placeholder="Start Looking For Something!"  />
+                                        <Link to={`/Search`} state={{query: text}} className="search-btn" href="#" style={style}>
+                                            <SearchIcon/>
                                         </Link>
                                     </div>
                                 </Flex>

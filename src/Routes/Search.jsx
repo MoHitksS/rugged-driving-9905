@@ -4,8 +4,8 @@ import SearchData from '../Components/SearchData'
 
 const Search = () => {
     return (
-        <Box>
-            <SearchData/>
+        <Box w={'80%'} m={'auto'}>
+            <SearchData title={'Search'} dataShowLimit={[1, 3, 4]} />
         </Box>
     )
 }
