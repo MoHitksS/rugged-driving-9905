@@ -4,10 +4,11 @@ import styles from '../CSS/MatchData.module.css'
 import { SimpleGrid, Stack, Text } from '@chakra-ui/react'
 import { DarkModeContext } from '../ContextApi/DarkModeContext'
 import { useContext } from 'react';
+const {REACT_APP_API} = process.env
 
 const MatchData = ({ matchType }) => {
     const [data, setData] = useState([])
-    const api = matchType !== "Matches" ? `https://apna-mock-server.herokuapp.com/espncricinfo?q=${matchType}&_limit=4` : `https://apna-mock-server.herokuapp.com/espncricinfo?_limit=4`;
+    const api = matchType !== "Matches" ? `${REACT_APP_API}/espncricinfo?q=${matchType}&_limit=4` : `${REACT_APP_API}/espncricinfo?_limit=4`;
     useEffect(() => {
         axios.get(api).then(res => (
             setData(res.data)
@@ -39,7 +40,7 @@ const MatchData = ({ matchType }) => {
 
 
     return (
-        <SimpleGrid columns={[1, 1, 4]} w={"100%"} gap={5}>
+        <SimpleGrid columns={[1, 1, 4]} w={"100%"} gap={2}>
             {data?.map((ele, index) => (
                 <div className={styles.matchData} key={index} style={newStyle}>
                     <span><span className={styles.matchDataDay} style={newStyle}>{ele.day},{ele.time}</span> • {ele.tournamnetType} • {ele.city}</span>
@@ -54,7 +55,7 @@ const MatchData = ({ matchType }) => {
                     <Stack>
                         {ele.matchTime !== "" ? <span className={styles.matchStart}>Match Starts in {ele.matchTime}</span> : <span className={styles.matchStart}>Match yet to begin</span>}
                     </Stack>
-                        <Text mt={1} mb={2} style={hrStyle} />
+                    <Text mt={1} mb={2} style={hrStyle} />
                     <div className={styles.bottomSection}>
                         <span>Schedule</span>
                         <span>Table</span>

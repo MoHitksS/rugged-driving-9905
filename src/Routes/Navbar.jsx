@@ -63,7 +63,7 @@ const Navbar = () => {
     ]
     const [matchType, setMatchType] = useState("Matches");
     const [text, setText] = useState("")
-    const {handleMode,style} = useContext(DarkModeContext)
+    const { handleMode, style } = useContext(DarkModeContext)
     const handleClick = (title) => {
         setMatchType(title);
     }
@@ -85,7 +85,7 @@ const Navbar = () => {
             </div>
             <div className={styles.navbarContainer} style={style}>
                 <div className={styles.navbarSection}>
-                    <Flex>
+                    <Flex alignItems={'center'} justifyContent={'space-between'}>
                         <div className={styles.navbarLeftSection}>
                             <Flex alignItems='center' gap='8' height='3rem' color={'white'}>
                                 <div className={styles.navbarLeftImageSection}>
@@ -101,7 +101,6 @@ const Navbar = () => {
                                 </div>
                             </Flex>
                         </div>
-                        <Spacer />
                         <div className={styles.navbarRightSection}>
                             <div>
                                 <Flex alignItems='center' height={50} gap={'6'} color='white'>
@@ -111,15 +110,19 @@ const Navbar = () => {
                                             <Text>Fantasy</Text>
                                         </Flex>
                                     </Link>
-                                    <Link to='/'>Edition IN</Link>
-                                    <MoonIcon w='5' h='5' onClick={handleMode}/>
+                                    <Link to='/'>
+                                        <Text fontSize={15}>
+                                            Edition IN
+                                        </Text>
+                                    </Link >
+                                    <MoonIcon w='5' h='5' onClick={handleMode} />
                                     <BellIcon w='6' h='6' />
                                     <GTranslateIcon />
                                     <AppsIcon />
                                     <div className="search-box" style={style}>
-                                        <input type="text" className="search-input" onChange={(e) => setText(e.target.value)} placeholder="Start Looking For Something!"  />
-                                        <Link to={`/Search`} state={{query: text}} className="search-btn" href="#" style={style}>
-                                            <SearchIcon/>
+                                        <input type="text" className="search-input" onChange={(e) => setText(e.target.value)} placeholder="Start Looking For Something!" />
+                                        <Link to={`/Search`} state={{ query: text }} className="search-btn" href="#" style={style}>
+                                            <SearchIcon />
                                         </Link>
                                     </div>
                                 </Flex>

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { DarkModeContext } from '../ContextApi/DarkModeContext'
 import { useContext } from 'react';
+const {REACT_APP_API} = process.env
 
 const VideosData = ({ query, title, headTitle, dataShowLimit = [1,2,4], limit = '' }) => {
     const [data, setData] = useState([]);
@@ -17,7 +18,7 @@ const VideosData = ({ query, title, headTitle, dataShowLimit = [1,2,4], limit = 
     }, [])
 
     useEffect(() => {
-        axios.get(`https://apna-mock-server.herokuapp.com/espncricinfoData${query}?_limit=${limit}`).then(res => (
+        axios.get(`${REACT_APP_API}/espncricinfoData${query}?_limit=${limit}`).then(res => (
             setData(res.data)
         )).catch(error => (
             console.log(error)

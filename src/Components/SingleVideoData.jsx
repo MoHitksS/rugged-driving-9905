@@ -2,6 +2,7 @@ import { AspectRatio, Box, Flex, Heading, Image, Skeleton, Text } from '@chakra-
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
+const {REACT_APP_API} = process.env
 
 const SingleVideoData = () => {
   const [data, setData] = useState([]);
@@ -9,7 +10,7 @@ const SingleVideoData = () => {
   const query = location.state?.query;
   const title = location.state?.title;
   useEffect(() => {
-    axios.get(`https://apna-mock-server.herokuapp.com/espncricinfoData${query}?q=${title}`).then(res => (
+    axios.get(`${REACT_APP_API}/espncricinfoData${query}?q=${title}`).then(res => (
       setData(res.data)
     )).catch(error => (
       console.log(error)

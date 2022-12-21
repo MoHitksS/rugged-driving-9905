@@ -3,6 +3,7 @@ import axios from 'axios';
 import { DarkModeContext } from '../ContextApi/DarkModeContext'
 import { useContext } from 'react';
 import React, { useEffect, useState } from 'react'
+const {REACT_APP_API} = process.env
 
 const LiveScoreData = ({ query, title }) => {
     const [data, setData] = useState([]);
@@ -16,7 +17,7 @@ const LiveScoreData = ({ query, title }) => {
     }, [])
 
     useEffect(() => {
-        axios.get(`https://apna-mock-server.herokuapp.com/espncricinfoData${query}`).then(res => (
+        axios.get(`${REACT_APP_API}/espncricinfoData${query}`).then(res => (
             setData(res.data)
         )).catch(error => (
             console.log(error)

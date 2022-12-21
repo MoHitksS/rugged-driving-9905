@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { DarkModeContext } from '../ContextApi/DarkModeContext'
 import { useContext } from 'react';
+const {REACT_APP_API} = process.env
 
 const SingleContentData = () => {
   const [data, setData] = useState([]);
@@ -11,7 +12,7 @@ const SingleContentData = () => {
   const query = location.state?.query;
   const title = location.state?.title;
   const { style,hrStyle } = useContext(DarkModeContext)
-  const api = query === `Article` ? `https://apna-mock-server.herokuapp.com/epsnCrickinfoSidebars?q=${title}` : query === 'Home' ? `https://apna-mock-server.herokuapp.com/espncricinfoHomeData?q=${title}` : `https://apna-mock-server.herokuapp.com/espncricinfoData${query}?q=${title}`
+  const api = query === `Article` ? `${REACT_APP_API}/epsnCrickinfoSidebars?q=${title}` : query === 'Home' ? `${REACT_APP_API}/espncricinfoHomeData?q=${title}` : `${REACT_APP_API}/espncricinfoData${query}?q=${title}`
   useEffect(() => {
     axios.get(api).then(res => (
       setData(res.data)

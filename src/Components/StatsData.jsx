@@ -3,12 +3,13 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { DarkModeContext } from '../ContextApi/DarkModeContext'
 import { useContext } from 'react';
+const {REACT_APP_API} = process.env
 
 const StatsData = ({ title, query, w }) => {
     const [data, setData] = useState([]);
     const { style,mode } = useContext(DarkModeContext)
     useEffect(() => {
-        axios.get(`https://apna-mock-server.herokuapp.com/espncricinfoData${query}`).then(res => (
+        axios.get(`${REACT_APP_API}/espncricinfoData${query}`).then(res => (
             setData(res.data)
         )).catch(error => (
             console.log(error)
