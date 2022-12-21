@@ -4,12 +4,14 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import styles from '../CSS/SidebarRight.module.css'
 import { DarkModeContext } from '../ContextApi/DarkModeContext'
+const {REACT_APP_API} = process.env
+
 const SidebarRightData = () => {
     const [data, setData] = useState([])
     const [loading, setLoading] = useState(false)
     const { style,hrStyle } = useContext(DarkModeContext)
     useEffect(() => {
-        axios.get(`https://apna-mock-server.herokuapp.com/epsnCrickinfoSidebars`).then((res) => {
+        axios.get(`${REACT_APP_API}/epsnCrickinfoSidebars`).then((res) => {
             setData(res.data)
         }).catch(error => {
             console.log(error)

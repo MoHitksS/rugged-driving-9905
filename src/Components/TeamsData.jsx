@@ -1,15 +1,16 @@
 import { Box, Flex, Image, SimpleGrid, Skeleton, Text } from '@chakra-ui/react'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-
 import { DarkModeContext } from '../ContextApi/DarkModeContext'
 import { useContext } from 'react';
+const {REACT_APP_API} = process.env
+
 const TeamsData = ({ query, title }) => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false)
     const { style,mode,hrStyle} = useContext(DarkModeContext)
     useEffect(() => {
-        axios.get(`https://apna-mock-server.herokuapp.com/${query}`).then(res => (
+        axios.get(`${REACT_APP_API}/${query}`).then(res => (
             setData(res.data)
         )).catch(error => (
             console.log(error)

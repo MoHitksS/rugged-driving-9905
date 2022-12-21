@@ -5,13 +5,13 @@ import { Flex, Heading, Image, Skeleton, Text } from '@chakra-ui/react';
 import styles from '../CSS/Content.module.css'
 import { Link } from 'react-router-dom';
 import { DarkModeContext } from '../ContextApi/DarkModeContext'
-
+const {REACT_APP_API} = process.env
 const ContentData = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState(false)
     const { style,hrStyle } = useContext(DarkModeContext)
     useEffect(() => {
-        axios.get(`https://apna-mock-server.herokuapp.com/espncricinfoHomeData`).then((res) => {
+        axios.get(`${REACT_APP_API}/espncricinfoHomeData`).then((res) => {
             setData(res.data)
         }).catch((error) => {
             console.log(error)

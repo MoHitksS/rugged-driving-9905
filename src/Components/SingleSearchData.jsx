@@ -4,13 +4,14 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { DarkModeContext } from '../ContextApi/DarkModeContext'
 import { useContext } from 'react';
+const {REACT_APP_API} = process.env
 
 const SingleSearchData = () => {
     const [data, setData] = useState([]);
     const location = useLocation();
     const title = location.state?.title;
     useEffect(() => {
-        axios.get(`https://apna-mock-server.herokuapp.com/epsnCrickInfo?q=${title}`).then(res => (
+        axios.get(`${REACT_APP_API}/epsnCrickInfo?q=${title}`).then(res => (
             setData(res.data)
         )).catch(error => (
             console.log(error)

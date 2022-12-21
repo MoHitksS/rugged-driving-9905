@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { DarkModeContext } from '../ContextApi/DarkModeContext'
 import { useContext } from 'react';
+const {REACT_APP_API} = process.env
 
 const DataFetch = ({ query, title }) => {
     const [data, setData] = useState([]);
@@ -18,7 +19,7 @@ const DataFetch = ({ query, title }) => {
     }, [])
 
     useEffect(() => {
-        axios.get(`https://apna-mock-server.herokuapp.com/espncricinfoData${query}`).then(res => (
+        axios.get(`${REACT_APP_API}/espncricinfoData${query}`).then(res => (
             setData(res.data)
         )).catch(error => (
             console.log(error)
